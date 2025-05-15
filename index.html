@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Sentiment Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Twitter Sentiment Analysis</h1>
+            <p>Analyze the sentiment of Twitter text in real-time</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <textarea id="tweetText" placeholder="Enter tweet text here..."></textarea>
+                <button id="analyzeBtn">Analyze Sentiment</button>
+            </div>
+
+            <div class="result-section">
+                <div class="sentiment-score">
+                    <h2>Sentiment Score</h2>
+                    <div id="score">0</div>
+                </div>
+                <div class="sentiment-details">
+                    <div class="sentiment-label">
+                        <span>Sentiment:</span>
+                        <span id="sentimentLabel">Neutral</span>
+                    </div>
+                    <div class="sentiment-emoji" id="sentimentEmoji">😐</div>
+                </div>
+                <div class="analysis-details">
+                    <h3>Analysis Details</h3>
+                    <div id="positiveWords" class="word-list">
+                        <h4>Positive Words</h4>
+                        <ul id="positiveWordsList"></ul>
+                    </div>
+                    <div id="negativeWords" class="word-list">
+                        <h4>Negative Words</h4>
+                        <ul id="negativeWordsList"></ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with ❤️ using Sentiment Analysis</p>
+        </footer>
+    </div>
+    <!-- Load sentiment library -->
+    <script src="https://cdn.jsdelivr.net/npm/sentiment@5.0.2/dist/sentiment.min.js"></script>
+    <!-- Initialize sentiment globally -->
+    <script>
+        window.onload = function() {
+            if (typeof sentiment === 'function') {
+                window.sentiment = sentiment;
+            } else {
+                console.error('Failed to load sentiment library');
+            }
+        };
+    </script>
+    <!-- Load our application code -->
+    <script src="script.js"></script>
+</body>
+</html> 
